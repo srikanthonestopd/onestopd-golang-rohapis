@@ -1,12 +1,13 @@
-package src
+package main
 
 import (
 	"encoding/json"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/gorilla/mux"
 )
 
 // Order struct to represent order data
@@ -22,6 +23,7 @@ type Order struct {
 var orders = []Order{
 	{OrderID: 1, CustomerName: "John Doe", OrderDate: time.Now().AddDate(0, 0, -5), TotalAmount: 150.75, Status: "Delivered"},
 	{OrderID: 2, CustomerName: "Jane Smith", OrderDate: time.Now().AddDate(0, 0, -3), TotalAmount: 200.00, Status: "Shipped"},
+	{OrderID: 4, CustomerName: "Santhosh Ande", OrderDate: time.Now().AddDate(0, 0, -3), TotalAmount: 500.00, Status: "Recieved"},
 }
 
 // Get all orders
