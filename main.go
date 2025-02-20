@@ -29,6 +29,7 @@ var orders = []Order{
 	{OrderID: 6, CustomerName: "yuvin", OrderDate: time.Now().AddDate(0, 0, -2), TotalAmount: 290.00, Status: "delivered"},
 	{OrderID: 7, CustomerName: "vaishnavi", OrderDate: time.Now().AddDate(0, 0, -3), TotalAmount: 1000.00, Status: "to be shipped"},
 	{OrderID: 8, CustomerName: "suraj", OrderDate: time.Now().AddDate(0, 0, -8), TotalAmount: 285.00, Status: " delivery by 6pm"},
+	{OrderID: 9, CustomerName: "Sharath", OrderDate: time.Now().AddDate(0, 0, -6), TotalAmount: 185.00, Status: " delivery by 9pm"},
 }
 
 // Get all orders
