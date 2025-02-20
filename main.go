@@ -2,11 +2,12 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/gorilla/mux"
 )
 
 // Order struct to represent order data
@@ -22,7 +23,12 @@ type Order struct {
 var orders = []Order{
 	{OrderID: 1, CustomerName: "John Doe", OrderDate: time.Now().AddDate(0, 0, -5), TotalAmount: 150.75, Status: "Delivered"},
 	{OrderID: 2, CustomerName: "Jane Smith", OrderDate: time.Now().AddDate(0, 0, -3), TotalAmount: 200.00, Status: "Shipped"},
-    {OrderID: 3, CustomerName: "Jaswanth", OrderDate: time.Now().AddDate(0, 0, -4),TotalAmount: 900.00, Status:"Delivery on Tuesday"},
+	{OrderID: 3, CustomerName: "Jaswanth", OrderDate: time.Now().AddDate(0, 0, -4), TotalAmount: 900.00, Status: "Delivery on Tuesday"},
+	{OrderID: 4, CustomerName: "Santosh", OrderDate: time.Now().AddDate(0, 0, -4), TotalAmount: 1900.00, Status: "Delivery on Wednesday"},
+	{OrderID: 5, CustomerName: "Sravani", OrderDate: time.Now().AddDate(0, 0, -9), TotalAmount: 145.00, Status: "Delivery on Sunday"},
+	{OrderID: 6, CustomerName: "yuvin", OrderDate: time.Now().AddDate(0, 0, -2), TotalAmount: 290.00, Status: "delivered"},
+	{OrderID: 7, CustomerName: "vaishnavi", OrderDate: time.Now().AddDate(0, 0, -3), TotalAmount: 1000.00, Status: "to be shipped"},
+	{OrderID: 8, CustomerName: "suraj", OrderDate: time.Now().AddDate(0, 0, -8), TotalAmount: 285.00, Status: " delivery by 6pm"},
 }
 
 // Get all orders
@@ -79,6 +85,6 @@ func main() {
 	router.HandleFunc("/api/orders", addOrder).Methods("POST")
 
 	// Start server
-	log.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Println("Server running on http://localhost:9090")
+	log.Fatal(http.ListenAndServe(":9090", router))
 }
