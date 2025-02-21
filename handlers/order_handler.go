@@ -20,7 +20,7 @@ var orders = []models.Order{
 
 // Get all orders from Couchbase
 func GetOrders(w http.ResponseWriter, r *http.Request) {
-	query := "SELECT META().id, * FROM `roh-api`.`myscope`.`orders`;"
+	query := "SELECT META().id, * FROM `roh-apis`.`myscope`.`orders`;"
 	rows, err := config.Cluster.Query(query, nil)
 	if err != nil {
 		http.Error(w, "Failed to fetch orders from Couchbase", http.StatusInternalServerError)
@@ -87,7 +87,7 @@ func AddOrder(w http.ResponseWriter, r *http.Request) {
 	newOrder.OrderDate = time.Now()
 
 	// ✅ Correct way to get collection from Couchbase
-	ordersCollection := config.Cluster.Bucket("roh-api").Scope("myscope").Collection("orders")
+	ordersCollection := config.Cluster.Bucket("roh-apis").Scope("myscope").Collection("orders")
 
 	// Insert into Couchbase
 	_, err = ordersCollection.Insert(
