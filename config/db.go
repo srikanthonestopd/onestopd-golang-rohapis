@@ -15,17 +15,17 @@ var Collection *gocb.Collection
 // Initialize Couchbase connection
 func InitCouchbase() {
 	var err error
-	Cluster, err = gocb.Connect("couchbase://127.0.0.1", gocb.ClusterOptions{
+	Cluster, err = gocb.Connect("couchbases://cb.tixyuflyocisfx7d.cloud.couchbase.com", gocb.ClusterOptions{
 		Username: "Administrator",
-		Password: "admin123",
+		Password: "Admin123!",
 	})
 	if err != nil {
 		log.Fatalf("Failed to connect to Couchbase: %v", err)
 	}
 
 	// Open bucket and collection
-	bucket := Cluster.Bucket("roh-api")
-	err = bucket.WaitUntilReady(10*time.Second, nil)
+	bucket := Cluster.Bucket("roh-apis")
+	err = bucket.WaitUntilReady(30*time.Second, nil)
 	if err != nil {
 		log.Fatalf("Bucket is not ready: %v", err)
 	}

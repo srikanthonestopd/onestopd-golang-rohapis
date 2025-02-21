@@ -14,7 +14,7 @@ import (
 
 // Fetch all items, find the highest ID, and increment it
 func getNextItemID() (string, error) {
-	query := "SELECT id FROM `roh-api`.`myscope`.`mycollection`;"
+	query := "SELECT id FROM `roh-apis`.`myscope`.`mycollection`;"
 	rows, err := config.Cluster.Query(query, nil)
 	if err != nil {
 		return "", err
